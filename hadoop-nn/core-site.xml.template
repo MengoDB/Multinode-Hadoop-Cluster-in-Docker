@@ -1,0 +1,49 @@
+  <configuration>
+      <property>
+          <name>fs.defaultFS</name>
+          <value>hdfs://HOSTNAME:9000</value>
+      </property>
+      <property>
+  	  <name>io.file.buffer.size</name>
+  	  <value>131072</value>
+      </property>
+      <property>
+      <name>hadoop.tmp.dir</name>
+      <value>/usr/local/hadoop/tmp</value>
+      </property>
+
+      
+      <property>
+<name>hadoop.http.filter.initializers</name>
+<value>org.apache.hadoop.http.lib.StaticUserWebFilter</value>
+<description>A comma separated list of class names. Each class in the list
+ must extend org.apache.hadoop.http.FilterInitializer. The corresponding
+ Filter will be initialized. Then, the Filter will be applied to all user
+ facing jsp and servlet web pages.  The ordering of the list defines the
+ ordering of the filters.</description>
+</property>
+
+<property>
+<name>hadoop.http.authentication.type</name>
+<value>simple</value>
+<description> Defines authentication used for the HTTP web-consoles. The supported values are: simple | kerberos | #AUTHENTICATION_HANDLER_CLASSNAME#. The dfeault value is simple.</description>
+</property>
+
+<property>
+<name>hadoop.http.authentication.token.validity</name>
+<value>36000</value>
+<description>Indicates how long (in seconds) an authentication token is valid before it has to be renewed. The default value is 36000.</description>
+</property>
+
+<property>
+<name>hadoop.http.authentication.signature.secret.file</name>
+<value>/usr/local/hadoop/pwd</value>
+<description>The signature secret file for signing the authentication tokens. The same secret should be used for all nodes in the cluster, JobTracker, NameNode, DataNode and TastTracker. The default value is $user.home/hadoop-http-auth-signature-secret. IMPORTANT: This file should be readable only by the Unix user running the daemons.</description>
+</property>
+
+<property>
+<name>hadoop.http.authentication.simple.anonymous.allowed</name>
+<value>false</value>
+<description>Indicates if anonymous requests are allowed when using 'simple' authentication. The default value is true.</description>
+</property>
+  </configuration>
